@@ -5,7 +5,7 @@
  *
  * @args: arguments
  *
- * Return: 0
+ * Return: 1
  */
 
 int printf_char(va_list args)
@@ -14,5 +14,5 @@ int printf_char(va_list args)
 
 	str = va_arg(args, int);
 	_putchar(str);
-	return (0);
+	return (1);
 }

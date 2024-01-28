@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 					count += print_bin(args);
 					break;
 				case '%':
-					_putchar('%');
+					_putchar(37);
 					count++;
 					break;
 				default:

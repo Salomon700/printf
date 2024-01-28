@@ -10,5 +10,8 @@ int _putchar(char c);
 int printf_string(va_list args);
 int _strlen(char *str);
 int _strlen_const(const char *str);
+int print_unsigned(va_list args);
+int print_d(va_list args);
+int print_i(va_list args);
 
 #endif

@@ -30,6 +30,12 @@ int _printf(const char *format, ...)
 				case 's':
 					count += printf_string(args);
 					break;
+				case 'i':
+					count += print_i(args);
+					break;
+				case 'd':
+					count += print_d(args);
+					break;
 				case '%':
 					_putchar('%');
 					count++;

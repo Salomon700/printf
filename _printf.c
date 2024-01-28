@@ -36,6 +36,9 @@ int _printf(const char *format, ...)
 				case 'd':
 					count += print_d(args);
 					break;
+				case 'b':
+					count += print_bin(args);
+					break;
 				case '%':
 					_putchar('%');
 					count++;

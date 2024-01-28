@@ -13,5 +13,6 @@ int _strlen_const(const char *str);
 int print_unsigned(va_list args);
 int print_d(va_list args);
 int print_i(va_list args);
+int print_bin(va_list val);
 
 #endif

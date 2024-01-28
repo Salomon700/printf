@@ -1,19 +1,18 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
+#include <stdarg.h>
 
 /**
- * _printf - function to print letter/symbols
+ * _printf - produces output according to a format
  *
- * @format: pointer to the format specifiers
+ * @format: format string
  *
- * Return: count
+ * Return: the number of characters printed (excluding the null byte)
  */
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
 	va_list args;
+	int count = 0;
 
 	va_start(args, format);
 
@@ -22,27 +21,34 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+
 			switch (*format)
 			{
 				case 'c':
-					count = charPrint(count, args);
+					count += printf_char(args);
 					break;
 				case 's':
-					count = strPrint(count, args);
+					count += printf_string(args);
 					break;
 				case '%':
-					count = perPrint(count);
+					_putchar('%');
+					count++;
 					break;
 				default:
+					_putchar('%');
+					_putchar(*format);
+					count += 2;
 					break;
 			}
 		}
 		else
 		{
-			count += putchar(*format);
+			_putchar(*format);
+			count++;
 		}
 		format++;
 	}
+
 	va_end(args);
 	return (count);
 }

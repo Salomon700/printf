@@ -1,17 +1,18 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 
 /**
- * charPrint - function that prints characters
+ * printf_char - prints characters
  *
- * @count: count of the characters printed
- * @args: list containing characters printed
+ * @args: arguments
  *
- * Return: updated count
+ * Return: 0
  */
 
-int charPrint(int count, va_list args)
+int printf_char(va_list args)
 {
-	return (count + putchar(va_arg(args, int)));
-}
+	char str;
 
+	str = va_arg(args, int);
+	_putchar(str);
+	return (0);
+}

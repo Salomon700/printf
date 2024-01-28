@@ -1,24 +1,33 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 
 /**
- * strPrint - prints a string
+ * printf_string - prints a string
  *
- * @count: count of characters
- * @args: list of strings printed
+ * @args: argument
  *
- * Return: updated count
+ * Return: length of string
  */
 
-int strPrint(int count, va_list args)
+int printf_string(va_list args)
 {
-	const char *str = va_arg(args, const char *);
+	char *str;
+	int i;
+	int length;
 
-	while (*str)
+	str = va_arg(args, char *);
+	if (str == NULL)
 	{
-		count += putchar(*str);
-		str++;
+		str = "(null)";
+		length = _strlen(str);
+		for (i = 0; i < length; i++)
+			_putchar(str[i]);
+		return (length);
 	}
-	return (count);
+	else
+	{
+		length = _strlen(str);
+		for (i = 0; i < length; i++)
+			_putchar(str[i]);
+		return (length);
+	}
 }
-
